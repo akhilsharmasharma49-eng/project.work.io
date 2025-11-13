@@ -1,0 +1,88 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: radial-gradient(circle at top, #f8f6f6 0%, #faf6f6 100%);
+  color: #3e3939;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  text-align: center;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 16px;
+  background: rgba(113, 103, 103, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(118, 104, 104, 0.1);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 2rem;
+}
+.container {
+  text-align: center;
+  padding: 4.5rem;
+  width: 200%;
+  max-width: 400px;
+  border-radius: 20px;
+  background: rgba(113, 103, 103, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(118, 104, 104, 0.1);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+.title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #0e0d0d;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+.clock {
+  margin: 2.5rem 0;
+}
+.time {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #141414;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+               0 0 20px rgba(255, 255, 255, 0.4);
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+.date {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  color: #131414;
+  letter-spacing: 1px;
+}
+.footer {
+  font-size: 0.9rem;
+  color: #131212;
+  margin-top: 2rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 1.8rem; 
+  }
+
+  .time {
+    font-size: 2.4rem; 
+  }
+
+  .date {
+    font-size: 1rem; 
+  }
+}
