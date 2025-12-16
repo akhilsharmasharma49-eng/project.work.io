@@ -1,0 +1,72 @@
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+}
+
+.home {
+    height: 100vh;
+    background: url(bg-sunny.jpg) center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.home-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 1;
+    width: 400px;
+}
+
+.home-box button {
+    width: 90%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    background: #2196f3;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.weather {
+    height: 100vh;
+    background: linear-gradient(#1e3c72,#2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-card {
+    background: white;
+    padding: 30px;
+    width: 420px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#forecast div {
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.dark {
+    background: #121212;
+    color: white;
+}
