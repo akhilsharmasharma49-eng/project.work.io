@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
 
+<style>
+:root{
+  --pink:#ff5f7e;
+  --dark:#3a1c2b;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+}
+
+/* ===== BACKGROUND ===== */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(120deg, rgba(255,95,126,.45), rgba(255,180,200,.35)),
+    url("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e");
+  background-size:cover;
+  background-position:center;
+  animation:bgMove 14s ease-in-out infinite alternate;
+  z-index:-3;
+}
+
+.gradient{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(
+    270deg,
+    rgba(255,95,126,.35),
+    rgba(255,210,225,.35),
+    rgba(255,140,170,.35)
+  );
+  background-size:600% 600%;
+  animation:gradientFlow 16s ease infinite;
+  z-index:-2;
+}
+
+.blob{
+  position:fixed;
+  width:320px;
+  height:320px;
+  background:rgba(255,120,160,.35);
+  filter:blur(90px);
+  border-radius:50%;
+  animation:blobMove 18s infinite alternate;
+  z-index:-1;
+}
+.blob:nth-child(1){top:10%; left:5%;}
+.blob:nth-child(2){bottom:15%; right:10%; animation-delay:4s;}
+.blob:nth-child(3){top:50%; left:60%; animation-delay:8s;}
+
+/* ===== PAGES ===== */
+.page{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+  pointer-events:none;
+}
+.page.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* ===== CARD ===== */
+.card{
+  width:360px;
+  background:rgba(255,255,255,.96);
+  border-radius:32px;
+  padding:36px 28px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  animation:scaleIn 1.2s ease;
+}
+
+h1{font-size:26px;color:var(--pink);}
+h2{margin:12px 0;color:var(--dark);}
+p{font-size:15px;color:#555;line-height:1.8;margin:18px 0;}
+
+button{
+  background:linear-gradient(135deg,#ff5f7e,#ff8fa3);
+  border:none;
+  color:white;
+  padding:14px 34px;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(255,95,126,.45);
+  transition:.4s;
+}
+button:hover{
+  transform:translateY(-4px) scale(1.05);
+}
+
+.icon{
+  font-size:64px;
+  margin-bottom:12px;
+  animation:float 2.5s ease-in-out infinite;
+}
+
+.final{
+  background:linear-gradient(135deg,#ffe3ec,#ffffff);
+  border-radius:22px;
+  padding:24px;
+  color:#7a1025;
+  animation:fadeUp 1.1s ease;
+}
+
+/* hearts */
+.heart{
+  position:absolute;
+  font-size:18px;
+  animation:rise 6s linear infinite;
+  opacity:.9;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes scaleIn{
+  from{transform:scale(.85);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rise{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
+}
+@keyframes bgMove{
+  from{transform:scale(1)}
+  to{transform:scale(1.12)}
+}
+@keyframes gradientFlow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes blobMove{
+  from{transform:translate(0,0)}
+  to{transform:translate(120px,-80px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="gradient"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <div class="card">
+    <h1>🎂 Happy Birthday</h1>
+    <h2>For You, Chayal 🌸</h2>
+    <p>
+      Today feels a little more beautiful,  
+      simply because it belongs to you ✨  
+      <br><br>
+      I made something small…  
+      just for your smile 💖
+    </p>
+    <button onclick="go(2)">Begin 🌷</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <div class="card">
+    <div class="icon">💌</div>
+    <p>
+      Some people make moments  
+      feel lighter without trying 💫  
+      <br><br>
+      Your presence does that.
+    </p>
+    <button onclick="go(3)">Next 💗</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+  <div class="card">
+    <div class="icon">🎂</div>
+    <p>
+      Another year added to your story,  
+      another reason for the world  
+      to smile softly 🌷
+    </p>
+    <button onclick="go(4)">A Rose 🌹</button>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+  <div class="card">
+    <div class="icon">🌹</div>
+    <p>
+      You have a way of being special  
+      without even trying 💖  
+      <br><br>
+      That’s rare… and beautiful.
+    </p>
+    <button onclick="go(5)">One Last Note ✨</button>
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+  <div class="card">
+    <div class="final">
+      I don’t know what the future holds,  
+      but moments like this  
+      feel genuinely warm 🌸  
+      <br><br>
+      May this year bring you  
+      peace, laughter, and gentle happiness 💗  
+      <br><br>
+      Happy Birthday ✨
+    </div>
+  </div>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll('.page')
+    .forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+  hearts();
+}
+
+function hearts(){
+  for(let i=0;i<14;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML=Math.random()>0.5?"💗":"🌸";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+4)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }
+}
+</script>
+
+</body>
+</html>
