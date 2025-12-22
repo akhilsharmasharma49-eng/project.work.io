@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akhil | Portfolio</title>
+
+<!-- Boxicons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<!-- ScrollReveal -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+:root{
+  --bg:#1f242d;
+  --bg2:#323946;
+  --text:#fff;
+  --main:#0ef;
+}
+html{scroll-behavior:smooth;font-size:62.5%;}
+body{background:var(--bg);color:var(--text);}
+
+section{padding:10rem 9%;}
+
+.header{
+  position:fixed;
+  top:0;left:0;width:100%;
+  padding:2rem 9%;
+  background:var(--bg);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+}
+.logo{font-size:2.4rem;color:var(--main);font-weight:600;}
+.navbar a{
+  font-size:1.6rem;
+  color:var(--text);
+  margin-left:3rem;
+}
+.navbar a:hover,.navbar a.active{color:var(--main);}
+#menu-icon{
+  font-size:3.5rem;
+  color:white;
+  display:none;
+  cursor:pointer;
+}
+
+/* HOME */
+.home{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:4rem;
+  min-height:100vh;
+}
+.home-content h1{font-size:5rem;}
+.home-content h3{font-size:2.4rem;margin:.8rem 0;}
+.home-content p{font-size:1.6rem;max-width:45rem;}
+.home-img img{
+  width:28vw;
+  border-radius:50%;
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  50%{transform:translateY(-2rem);}
+}
+
+/* HEADINGS */
+.heading{
+  text-align:center;
+  font-size:4rem;
+  margin-bottom:4rem;
+}
+span{color:var(--main);}
+
+/* ABOUT */
+.about{background:var(--bg2);text-align:center;}
+.about p{
+  font-size:1.6rem;
+  max-width:65rem;
+  margin:auto;
+}
+
+/* SERVICES */
+.service-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2.5rem;
+}
+.service-box{
+  background:var(--bg2);
+  padding:3rem;
+  border-radius:2rem;
+  text-align:center;
+  transition:.3s;
+}
+.service-box:hover{
+  transform:translateY(-8px);
+  border:2px solid var(--main);
+}
+.service-box i{
+  font-size:6rem;
+  color:var(--main);
+}
+.service-box h3{
+  font-size:2.2rem;
+  margin:1rem 0;
+}
+.service-box p{
+  font-size:1.5rem;
+}
+
+/* PORTFOLIO */
+.portfolio{background:var(--bg2);}
+.portfolio-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2.5rem;
+}
+.portfolio-box{
+  position:relative;
+  border-radius:2rem;
+  overflow:hidden;
+}
+.portfolio-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+.portfolio-box:hover img{
+  transform:scale(1.1);
+}
+.portfolio-layer{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.6),var(--main));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transform:translateY(100%);
+  transition:.4s;
+  text-align:center;
+  padding:2rem;
+}
+.portfolio-box:hover .portfolio-layer{
+  transform:translateY(0);
+}
+.portfolio-layer h4{font-size:2.4rem;}
+.portfolio-layer p{font-size:1.4rem;margin:1rem 0;}
+.portfolio-layer a{
+  width:4.5rem;
+  height:4.5rem;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.portfolio-layer i{
+  font-size:2rem;
+  color:black;
+}
+
+/* CONTACT */
+.contact{text-align:center;}
+.contact p{
+  font-size:1.6rem;
+  margin-bottom:2rem;
+  color:#ccc;
+}
+.contact form{
+  max-width:60rem;
+  margin:auto;
+}
+.contact input,.contact textarea{
+  width:100%;
+  padding:1.4rem;
+  margin:.8rem 0;
+  border-radius:.8rem;
+  background:var(--bg2);
+  color:white;
+  font-size:1.5rem;
+}
+textarea{resize:none;}
+.btn{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:1rem 3rem;
+  background:var(--main);
+  color:black;
+  border-radius:3rem;
+  font-size:1.6rem;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+  background:var(--bg2);
+  padding:2rem;
+  text-align:center;
+  font-size:1.4rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #menu-icon{display:block;}
+  .navbar{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:var(--bg);
+    display:none;
+    text-align:center;
+  }
+  .navbar.active{display:block;}
+  .navbar a{
+    display:block;
+    margin:2rem 0;
+  }
+  .home{
+    flex-direction:column;
+    text-align:center;
+  }
+  .home-img img{
+    width:60vw;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <a href="#" class="logo">Akhil</a>
+  <i class='bx bx-menu' id="menu-icon"></i>
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Skills</a>
+    <a href="#portfolio">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="home" id="home">
+  <div class="home-content">
+    <h1>Akhil Sharma</h1>
+    <h3>Full Stack Developer</h3>
+    <p>I build responsive, clean and user-friendly web applications and love learning new technologies.</p>
+  </div>
+  <div class="home-img">
+    <img src="https://uploads.onecompiler.io/43z2cr5uk/448asu4ur/me.jpg">
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="heading">About <span>Me</span></h2>
+  <p>
+  I am a beginner full-stack developer passionate about building web applications and improving my skills every day.
+  I am a passionate and motivated developer with a strong interest in web development.
+  I enjoy building user-friendly and responsive websites using modern technologies.
+  This project reflects my learning, creativity, and dedication to improving my technical skills.
+  I am always eager to learn new tools and take on challenging problems.
+  A passionate and dedicated developer interested in modern web technologies.
+  This project reflects my learning journey and my commitment to improving my technical skills.
+  </p>
+</section>
+
+<section class="services" id="services">
+  <h2 class="heading">My <span>Skills</span></h2>
+  <div class="service-container">
+    <div class="service-box">
+      <i class='bx bx-code-alt'></i>
+      <h3>Programming</h3>
+      <p>C, OOPS, JavaScript</p>
+    </div>
+    <div class="service-box">
+      <i class='bx bx-laptop'></i>
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JavaScript, React</p>
+    </div>
+    <div class="service-box">
+      <i class='bx bx-certification'></i>
+      <h3>Certification</h3>
+      <p>Graphic Designer</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <h2 class="heading">Latest <span>Projects</span></h2>
+
+  <div class="portfolio-container">
+
+    <div class="portfolio-box">
+      <img src="https://uploads.onecompiler.io/43z2cr5uk/448asu4ur/weather.jpg">
+      <div class="portfolio-layer">
+        <h4>Weather App</h4>
+        <p>API based weather application</p>
+        <a href="https://weatherapp.oneapp.dev/"><i class='bx bx-link-external'></i></a>
+      </div>
+    </div>
+
+    <div class="portfolio-box">
+      <img src="https://uploads.onecompiler.io/43z2cr5uk/448asu4ur/ticktocktoe.jpg">
+      <div class="portfolio-layer">
+        <h4>Tic Tac Toe</h4>
+        <p>JavaScript game</p>
+        <a href="https://akhilsharmasharma49-eng.github.io/project.work.io/tic&tac&toe/game.html"><i class='bx bx-link-external'></i></a>
+      </div>
+    </div>
+
+    <div class="portfolio-box">
+      <img src="https://uploads.onecompiler.io/43z2cr5uk/448asu4ur/curency.jpg">
+      <div class="portfolio-layer">
+        <h4>Currency Converter</h4>
+        <p>Live currency API</p>
+        <a href="https://akhilsharmasharma49-eng.github.io/project.work.io/currencyconverter/currency.html"><i class='bx bx-link-external'></i></a>
+      </div>
+    </div>
+
+    <div class="portfolio-box">
+      <img src="https://uploads.onecompiler.io/43z2cr5uk/448asu4ur/portfolio.jpg">
+      <div class="portfolio-layer">
+        <h4>Dashboard UI</h4>
+        <p>Admin dashboard design</p>
+        <a href="https://panel_admin.oneapp.dev/"><i class='bx bx-link-external'></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="heading">Contact <span>Me</span></h2>
+  <p>Have a project idea or want to connect? Send me a message.</p>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <button class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer class="footer">
+  © 2025 Akhil Sharma | All Rights Reserved
+</footer>
+
+<script>
+const menuIcon=document.querySelector('#menu-icon');
+const navbar=document.querySelector('.navbar');
+menuIcon.onclick=()=>navbar.classList.toggle('active');
+
+ScrollReveal({
+  distance:'60px',
+  duration:1500,
+  delay:200
+});
+ScrollReveal().reveal('.home-content,.heading',{origin:'top'});
+ScrollReveal().reveal('.home-img,.service-box,.portfolio-box,.contact form',{origin:'bottom'});
+</script>
+
+</body>
+</html>
